@@ -33,6 +33,16 @@ Die >> initialize [
 	faces := 6
 ]
 
+{ #category : 'printing' }
+Die >> printOn: aStream [
+
+	super printOn: aStream.
+	aStream
+		nextPutAll: ' (';
+		print: faces;
+		nextPutAll: ')'
+]
+
 { #category : 'as yet unclassified' }
 Die >> roll [
 	"roll a die between one and aNumber"
