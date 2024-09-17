@@ -1,8 +1,9 @@
 Class {
 	#name : 'TestC',
 	#superclass : 'TestCase',
-	#category : 'week2',
-	#package : 'week2'
+	#category : 'week2-LOOKUP',
+	#package : 'week2',
+	#tag : 'LOOKUP'
 }
 
 { #category : 'tests' }

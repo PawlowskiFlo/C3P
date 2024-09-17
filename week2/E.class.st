@@ -1,8 +1,9 @@
 Class {
 	#name : 'E',
 	#superclass : 'D',
-	#category : 'week2',
-	#package : 'week2'
+	#category : 'week2-LOOKUP',
+	#package : 'week2',
+	#tag : 'LOOKUP'
 }
 
 { #category : 'accessing' }

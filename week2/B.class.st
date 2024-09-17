@@ -1,6 +1,7 @@
 Class {
 	#name : 'B',
 	#superclass : 'A',
-	#category : 'week2',
-	#package : 'week2'
+	#category : 'week2-LOOKUP',
+	#package : 'week2',
+	#tag : 'LOOKUP'
 }
