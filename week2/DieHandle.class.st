@@ -9,17 +9,9 @@ Class {
 	#tag : 'DICE'
 }
 
-{ #category : 'arithmetic' }
-DieHandle >> + aDieHandle [ 
-	| newHandle |
-	newHandle := self class new. 
-	dices
-	do: [ :each | newHandle addDie: each].
-	aDieHandle dices
-	do: [ :each | newHandle addDie: each].
-	^ newHandle 
-
-	
+{ #category : 'as yet unclassified' }
+DieHandle >> + aDicable [ 
+	^ aDicable sumWithHandle: self
 ]
 
 { #category : 'initialization' }
@@ -48,6 +40,12 @@ DieHandle >> dices: anOrderedCollection [
 	dices := anOrderedCollection
 ]
 
+{ #category : 'as yet unclassified' }
+DieHandle >> faces [ 
+	^ dices sum: [ :each | each faces ].
+	
+]
+
 { #category : 'initialization' }
 DieHandle >> initialize [ 
 	dices := OrderedCollection new.
@@ -66,4 +64,22 @@ DieHandle >> rollSimple [
 	dices 
 	do: [ :each | counter := (counter + each roll) ].
 	^ counter
+]
+
+{ #category : 'as yet unclassified' }
+DieHandle >> sumWithDie: aDie [ 
+	| handle |
+	handle := self class new. 
+	self dices do: [ :each | handle addDie: each ].
+	handle addDie: aDie. 
+	^ handle
+]
+
+{ #category : 'as yet unclassified' }
+DieHandle >> sumWithHandle: aDieHandle [ 
+	| handle |
+	handle := self class new. 
+	self dices do: [ :each | handle addDie: each ].
+	aDieHandle dices do: [ :each | handle addDie: each ].
+	^ handle
 ]

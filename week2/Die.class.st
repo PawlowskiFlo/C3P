@@ -16,6 +16,12 @@ Die class >> withFaces: aNumber [
 	^ self new faces: aNumber
 ]
 
+{ #category : 'as yet unclassified' }
+Die >> + aDicable [ 
+	
+	^ aDicable sumWithDie: self
+]
+
 { #category : 'accessing' }
 Die >> faces [ 
 	^faces
@@ -49,4 +55,21 @@ Die >> roll [
 	
 	^ faces atRandom
 	
+]
+
+{ #category : 'as yet unclassified' }
+Die >> sumWithDie: aDie [ 
+
+	^DieHandle new 
+	addDie: self; 
+	addDie: aDie; yourself
+]
+
+{ #category : 'as yet unclassified' }
+Die >> sumWithHandle: aDieHandle [ 
+	| handle |
+	handle := DieHandle new. 
+	aDieHandle dices do: [ :each | handle addDie: each ].
+	handle addDie: self.
+	^ handle
 ]
